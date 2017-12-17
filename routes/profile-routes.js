@@ -100,7 +100,8 @@ module.exports = function (app) {
                 if(data.gender === 'male') {
                     isMale = true;
                 }
-                res.render('profile/edit-profile', {
+                // res.render('profile', {
+                    res.render('profile/edit-profile', {
                     userPicture: data.picture,
                     userName: data.name,
                     userEmail: data.email,

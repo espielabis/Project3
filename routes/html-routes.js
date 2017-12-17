@@ -2,7 +2,7 @@ var models = require('../models');
 var loggedIn;
 
 module.exports = function (app) {
-    //Get an owner by id
+    //Get an user by id
     app.get('/users/:id', function (req, res) {
         if(req.isAuthenticated()) {
             models.Users.findOne({
