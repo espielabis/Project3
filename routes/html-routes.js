@@ -286,7 +286,7 @@ module.exports = function (app) {
         }
     });
 
-    //Get the current owner pets to choose from for the friendship
+    //Get the current user roommates to choose from for the friendship
     app.post('/myRoommates', function (req, res) {
         var friendRoommateId = req.body.friendRoommateId * 1;
         models.Roommates.findAll({

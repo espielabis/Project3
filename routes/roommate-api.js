@@ -9,8 +9,8 @@ module.exports = function (app) {
       var userId = req.body.userId;
 
         if (req.files.roommatePicture) {
-          var petPicture = req.files.roommatePicture;
-            imgPath = '/RoommateImages/' + userId + '_' + req.body.name + '.jpg';
+          var userPicture = req.files.roommatePicture;
+            imgPath = '/RoommateImages/' + userId + '_' + req.body.name + '.jpeg';
 
           roommatePicture.mv(path.join(__dirname, '../public' + imgPath), function (err) {
                 if (err) {
@@ -36,7 +36,7 @@ module.exports = function (app) {
 
     });
 
-    //Upload pet picture
+    //Upload roommate picture
     app.post('/api/newroommateimg/upload', function (req, res) {
         if (!req.files.roommatePicture) {
             return res.status(400).send('No files were uploaded');
@@ -63,8 +63,8 @@ module.exports = function (app) {
         });
     });
 
-    //Updating pet's info
-    app.post('/api/update-roommate', function (req, res) {
+    //Updating roommmate's info
+    app.put('/api/update-roommate', function (req, res) {
         models.Pets.update({
             name: req.body.name,
             rlocation: req.body.rlocation,
@@ -80,7 +80,7 @@ module.exports = function (app) {
         });
     });
 
-    //Delete pet
+    //Delete roommate
     app.delete('/api/delete-roommate/:id', function (req, res) {
         models.Roommates.destroy({
             where: {
@@ -91,7 +91,7 @@ module.exports = function (app) {
         });
     });
 
-    //Get pet
+    //Get roommate
     app.get('/api/roommate/:id', function (req, res) {
         models.Roommates.findOne({
             where: {

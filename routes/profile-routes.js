@@ -53,7 +53,7 @@ module.exports = function (app) {
                     userEmail: data.email,
                     userId: data.id,
                     userBio: data.bio,
-                    pets: data.Pets,
+                    roommates: data.Roommates,
                     isUser: req.isAuthenticated()
                 });
             });
@@ -65,7 +65,7 @@ module.exports = function (app) {
     //Get user's friends (no data)
     app.get('/profile/view-friends', function (req, res) {
         if(req.isAuthenticated()) {
-            models.Owners.findOne({
+            models.Users.findOne({
                 where: {
                     id: req.user.id
                 }
@@ -86,7 +86,7 @@ module.exports = function (app) {
         }
     });
 
-    //Get owner's info
+    //Get user's info
     app.get('/profile/edit-profile', function (req, res) {
         if(req.isAuthenticated()) {
             models.Users.findOne({
@@ -94,7 +94,7 @@ module.exports = function (app) {
                     id: req.user.id
                 }
             }).then(data => {
-                let isMale = false;
+                var isMale = false;
                 if(data.gender === 'male') {
                     isMale = true;
                 }
