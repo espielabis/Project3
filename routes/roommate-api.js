@@ -65,7 +65,7 @@ module.exports = function (app) {
 
     //Updating roommmate's info
     app.put('/api/update-roommate', function (req, res) {
-        models.Pets.update({
+        models.Roommates.update({
             name: req.body.name,
             rlocation: req.body.rlocation,
             withRoom: req.body.withRoom,
