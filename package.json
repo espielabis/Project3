@@ -11,13 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/espielabis/Project3.git"
   },
-  "author": "Espie",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/espielabis/Project3/issues"
   },
   "homepage": "https://github.com/espielabis/Project3#readme",
   "dependencies": {
+    "express": "^4.16.2",
     "express-fileupload": "^0.3.0"
   }
 }
