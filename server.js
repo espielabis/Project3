@@ -33,15 +33,15 @@ app.use(fileUpload());
 
 app.set('views', './views');
 //
-// app.engine('hbs', exphbs(
-//     {
-//         defaultLayout: "main",
-//         extname: '.hbs',
-//         partialsDir: 'views/partials'
-//     }
-// ));
-//
-// app.set('view engine', '.hbs');
+app.engine('handlebars', exphbs(
+    {
+        defaultLayout: "main",
+        extname: '.handlebars',
+        partialsDir: 'views/partials'
+    }
+));
+
+app.set('view engine', '.handlebars');
 
 // var exphbs = require("express-handlebars");
 // require('./public/assets/js/handlebars.js')(exphbs);
