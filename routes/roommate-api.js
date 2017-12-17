@@ -9,7 +9,7 @@ module.exports = function (app) {
       var userId = req.body.userId;
 
         if (req.files.roommatePicture) {
-          var userPicture = req.files.roommatePicture;
+          var roommatePicture = req.files.roommatePicture;
             imgPath = '/RoommateImages/' + userId + '_' + req.body.name + '.jpeg';
 
           roommatePicture.mv(path.join(__dirname, '../public' + imgPath), function (err) {
