@@ -1,53 +1,60 @@
 module.exports = function(sequelize, DataTypes) {
-    var Roommates = sequelize.define('Roommates', {
-        rmname: {
+    var Users = sequelize.define('Users', {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-
-        rmpicture: {
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isEmail: true
+            }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        picture: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        rlocation: {
+        location: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        withRoom: {
+        gender: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        rmgender: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        rmage: {
+        age: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        rmbio: {
+        bio: {
             type: DataTypes.STRING,
             allowNull: true,
         }
     });
-    Roommates.associate = function(models) {
-        Roommates.belongsTo(models.Users, {
-            foreignKey: {
-                allowNull: false
-            }
+
+    Users.associate = function(models) {
+        Users.hasMany(models.Roommates, {
+          onDelete: "cascade"
         });
     };
-    return  Roommates;
+    // Users.associate = function(models) {
+    //     Users.hasMany(models.Posts, {
+    //       onDelete: "cascade"
+    //     });
+    // };
+    return Users;
 };

@@ -6,11 +6,11 @@ module.exports = function (app) {
     //Post new with picture
     app.post('/api/roommates', function (req, res) {
       var imgPath;
-      var userId = req.body.userId;
+      var userId = req.body.rmId;
 
         if (req.files.roommatePicture) {
-          var roommatePicture = req.files.roommatePicture;
-            imgPath = '/RoommateImages/' + userId + '_' + req.body.name + '.jpeg';
+          var roommatePicture = req.files.rmPicture;
+            imgPath = '/RoommateImages/' + userId + '_' + req.body.rmname + '.jpeg';
 
           roommatePicture.mv(path.join(__dirname, '../public' + imgPath), function (err) {
                 if (err) {
@@ -18,18 +18,18 @@ module.exports = function (app) {
                 }
             });
         } else {
-            imgPath = 'https://api.adorable.io/avatars/285/' + req.body.name + '.png'
+            imgPath = 'https://api.adorable.io/avatars/285/' + req.body.rmname + '.png'
         }
 
         models.Roommates.create({
-            name: req.body.name,
-            UserId: userId,
-            picture: imgPath,
+            rmname: req.body.rmname,
+            rmId: roommateId,
+            rmpicture: imgPath,
             rlocation: req.body.rlocation,
-            gender: req.body.gender,
+            rmgender: req.body.rmgender,
             withRoom: req.body.withRoom,
-            age: req.body.age,
-            bio: req.body.bio
+            rmage: req.body.rmage,
+            rmbio: req.body.rmbio
         }).then(function () {
             res.redirect('/profile/view-roommates');
         });
@@ -42,10 +42,10 @@ module.exports = function (app) {
             return res.status(400).send('No files were uploaded');
         }
 
-        var roommatePicture = req.files.roommatePicture;
-        var roommateId = req.body.id;
+        var roommatePicture = req.files.rmPicture;
+        var roommateId = req.body.rmId;
         console.log(roommateId);
-        var imgPath = '/RoommateImages/' + req.user.id + '_' + req.body.name + '.jpeg';
+        var imgPath = '/RoommateImages/' + req.user.rmId + '_' + req.body.rmname + '.jpeg';
 
         roommatePicture.mv(path.join(__dirname, '../public' + imgPath), function (err) {
             if (err) {
@@ -66,16 +66,17 @@ module.exports = function (app) {
     //Updating roommmate's info
     app.put('/api/update-roommate', function (req, res) {
         models.Roommates.update({
-            name: req.body.name,
+            rmname: req.body.rmname,
             rlocation: req.body.rlocation,
             withRoom: req.body.withRoom,
-            age: req.body.age,
-            bio: req.body.bio
+            rmage: req.body.rmage,
+            rmgender:req.body.rmgender,
+            rmbio: req.body.rmbio
         }, {
             where: {
                 id: req.body.id
             }
-        }).then(function (dbUsers) {
+        }).then(function (dbRoommates) {
             res.redirect('/profile/view-roommates');
         });
     });
@@ -84,7 +85,7 @@ module.exports = function (app) {
     app.delete('/api/delete-roommate/:id', function (req, res) {
         models.Roommates.destroy({
             where: {
-                id: req.params.id
+                id: req.params.rmId
             }
         }).then(function (dbRoommates) {
             res.send('deleted');
@@ -95,7 +96,7 @@ module.exports = function (app) {
     app.get('/api/roommate/:id', function (req, res) {
         models.Roommates.findOne({
             where: {
-                id: req.params.id * 1
+                id: req.params.rmId * 1
             }
         }).then(data => {
             res.json(data);

@@ -63,7 +63,7 @@ module.exports = function (app) {
         if(req.isAuthenticated()) {
             models.Roommates.findOne({
                 where: {
-                    id: req.params.id
+                    id: req.params.rmId
                 },
                 include: [models.Users]
             }).then(data => {
@@ -91,12 +91,12 @@ module.exports = function (app) {
 
                         res.render('roommate', {
                             id: req.params.id,
-                            name: data.name,
-                            picture: data.picture,
-                            age: data.age,
+                            rmname: data.rmname,
+                            rmpicture: data.rmpicture,
+                            rmage: data.rmage,
                             withRoom: data.withRoom,
-                            rlocation: data.location,
-                            bio: data.bio,
+                            rlocation: data.rlocation,
+                            rmbio: data.rmbio,
                             location: userData.location,
                             userName: userData.name,
                             userAge: userData.age,
@@ -118,7 +118,7 @@ module.exports = function (app) {
 
         models.Roommates.findOne({
             where: {
-                id: req.params.id
+                id: req.params.rmId
             },
             include: [models.Users]
         }).then(data => {
@@ -130,12 +130,12 @@ module.exports = function (app) {
 
                 res.render('roommate', {
                     id: req.params.id,
-                    name: data.name,
-                    picture: data.picture,
-                    age: data.age,
+                    rmname: data.rmname,
+                    rmpicture: data.rmpicture,
+                    rmage: data.rmage,
                     withRoom: data.withRoom,
-                    rlocation: data.location,
-                    bio: data.bio,
+                    rlocation: data.rlocation,
+                    rmbio: data.rmbio,
                     location: userData.location,
                     userName: userData.name,
                     userAge: userData.age,
@@ -154,7 +154,7 @@ module.exports = function (app) {
         if(req.isAuthenticated()) {
             models.Roommates.findAll({
                 where: {
-                    UserId: {$ne: req.user.id}
+                  UserId  : {$ne: req.user.id}
                 }
             }).then(data => {
                 var Roommates = [];
@@ -189,7 +189,7 @@ module.exports = function (app) {
     });
 
     app.post('/roommates', function (req, res) {
-        console.log('\n======\n' + req.body.rlocation + '\n======\n' + req.body.withRoom + '\n======\n' + req.body.age + '\n======\n' + req.body.gender);
+        console.log('\n======\n' + req.body.rlocation + '\n======\n' + req.body.withRoom + '\n======\n' + req.body.rmage + '\n======\n' + req.body.rmgender);
 
         var query = {};
 
@@ -203,26 +203,26 @@ module.exports = function (app) {
             query.withRoom = req.body.withRoom
         }
 
-        if (req.body.age != '') {
-            query.age = req.body.age
+        if (req.body.rmage != '') {
+            query.rmage = req.body.rmage
 
-            if (req.body.age === '20-30') {
-                query.age = {
+            if (req.body.rmage === '20-30') {
+                query.rmage = {
                     lte: 30
                 }
-            } else if (req.body.age === '40-70') {
-                query.age = {
+            } else if (req.body.rmage === '40-70') {
+                query.rmage = {
                     between: [40, 70]
                 }
             } else {
-                query.age = {
+                query.rmage = {
                     gte: 80
                 }
             }
         }
 
-        if (req.body.gender != '') {
-            query.gender = req.body.gender
+        if (req.body.rmgender != '') {
+            query.rmgender = req.body.rmgender
 
         }
 
@@ -257,7 +257,7 @@ module.exports = function (app) {
     });
 
     //logged in view
-    app.get('/home', function (req, res) {
+    app.get('/profile', function (req, res) {
         if (req.isAuthenticated()) {
             models.Users.findOne({
                 where: {
@@ -293,7 +293,7 @@ module.exports = function (app) {
         var friendRoommateId = req.body.friendRoommateId * 1;
         models.Roommates.findAll({
             where: {
-                UserId: req.user.id * 1
+                rmId: req.user.rmId * 1
             },
         }).then(data => {
 

@@ -19,7 +19,7 @@ nav.page-navigation a {
 
 
 .jumbotron {
-	background-image: url("https://symbi.imgix.net/symbi/women_among_clothes.jpg");
+	background-image: url("/assets/img/pexels-photo-58592.jpeg");
   height: 500px;
 
 
@@ -117,7 +117,7 @@ body {
     margin-left: 40%;
 }
 
-/*.btn:hover {
+.btn:hover {
     cursor: pointer;
 }
 
@@ -170,7 +170,7 @@ body {
 }
 
 /**Home styles**/
-/*html, body.home {
+html, body.home {
     height: 100%;
     position: relative;
 }
@@ -245,7 +245,7 @@ body.home .navbar {
         display: block;
         width: 100%;
         padding-top: 0;
-    }
+    /
 
     #SignUpForm .form {
         padding: 100px;
@@ -264,5 +264,5 @@ body.home .navbar {
         background-position: top;
         height: 300px;
     }
-}*/
+}
 /*espie stylesheets ends here*/

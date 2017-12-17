@@ -102,7 +102,7 @@ module.exports = function (app) {
     app.get('/api/user-roommates/:id', function (req, res) {
         models.Roommates.findAll({
             where: {
-                OwnerId: req.params.id * 1
+                UserId: req.params.id * 1
             }
         }).then(data => {
             res.json(data);

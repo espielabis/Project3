@@ -163,12 +163,12 @@ $(document).ready(function () {
             $(".roommate-data").remove();
             $('#edit-roommate-form').append('<input type="hidden" class="roommate-data" name="id" value="' + data.id + '" />');
             $('#UpdateRoommateImg-form').append('<input type="hidden" class="roommate-data" name="id" value="' + data.id + '" />');
-            $('#UpdateRoommateImg-form').append('<input type="hidden" class="roommate-data" name="name" value="' + data.name + '" />');
-            $('#roommate-name').val(data.name);
+            $('#UpdateRoommateImg-form').append('<input type="hidden" class="roommate-data" name="name" value="' + data.rmname + '" />');
+            $('#roommate-name').val(data.rmname);
             $('#roommate-rlocation').val(data.rlocation);
             $('#roommate-withRoom').val(data.withRoom);
-            $('#roommate-age').val(data.age);
-            $('#roommate-bio').val(data.bio);
+            $('#roommate-age').val(data.rmage);
+            $('#roommate-bio').val(data.rmbio);
         });
     }
 
@@ -183,7 +183,7 @@ $(document).ready(function () {
 
     switch (window.location.pathname) {
 
-        case '/profile':
+        case '/dashboard':
         case '/profile/':
             $('#view-post').addClass('active');
             $('#my-profile').addClass('active outline-active');
@@ -215,7 +215,7 @@ $(document).ready(function () {
             $('#find-users').addClass('active outline-active');
             break;
     }
-    $('.modal').on('shown.bs.modal', function() {
-      $(this).find('[autofocus]').focus();
-    });
+    // $('.modal').on('shown.bs.modal', function() {
+    //   $(this).find('[autofocus]').focus();
+    // });
 });
