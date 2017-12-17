@@ -224,7 +224,7 @@ module.exports = function (app) {
 
         }
 
-        models.Pets.findAll({
+        models.Roommates.findAll({
             where: query
         }).then(data => {
             var Roommates = [];
