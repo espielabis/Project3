@@ -6,7 +6,7 @@ module.exports = function (app) {
     //Post new with picture
     app.post('/api/roommates', function (req, res) {
       var imgPath;
-      var userId = req.body.rmId;
+      var rmId = req.body.rmId;
 
         if (req.files.roommatePicture) {
           var roommatePicture = req.files.rmPicture;
@@ -23,7 +23,7 @@ module.exports = function (app) {
 
         models.Roommates.create({
             rmname: req.body.rmname,
-            rmId: roommateId,
+            rmId: rmId,
             rmpicture: imgPath,
             rlocation: req.body.rlocation,
             rmgender: req.body.rmgender,
@@ -44,8 +44,8 @@ module.exports = function (app) {
 
         var roommatePicture = req.files.rmPicture;
         var roommateId = req.body.rmId;
-        console.log(roommateId);
-        var imgPath = '/RoommateImages/' + req.user.rmId + '_' + req.body.rmname + '.jpeg';
+        console.log(rmId);
+        var imgPath = '/RoommateImages/' + req.user.id + '_' + req.body.rmname + '.jpeg';
 
         roommatePicture.mv(path.join(__dirname, '../public' + imgPath), function (err) {
             if (err) {
@@ -100,6 +100,8 @@ module.exports = function (app) {
             }
         }).then(data => {
             res.json(data);
+
+
         });
     });
 }

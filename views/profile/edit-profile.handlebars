@@ -38,11 +38,11 @@
                             <label for="gender" class="col-form-label">Gender</label>
                             <select required name="gender" class="form-control">
                                 {{#if isMale}}
-                                <option name="gender" value="{{userGender}}" selected>Male</option>
-                                <option name="gender" value="{{userGender}}">Female</option>
+                                <option name="gender" value="male" selected>Male</option>
+                                <option name="gender" value="female">Female</option>
                                 {{else}}
-                                <option name="gender" value="{{userGender}}">Male</option>
-                                <option name="gender" value="{{userGender}}" selected>Female</option>
+                                <option name="gender" value="male">Male</option>
+                                <option name="gender" value="female" selected>Female</option>
                                 {{/if}}
                             </select>
                         </div>

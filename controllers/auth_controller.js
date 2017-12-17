@@ -3,7 +3,6 @@ module.exports = {
         res.render('/');
     },
     signin: function (req, res) {
-      console.log("login successful")
         res.redirect('/profile');
     },
     logout: function (req, res) {

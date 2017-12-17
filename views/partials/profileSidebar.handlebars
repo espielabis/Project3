@@ -1,12 +1,9 @@
-
-
-
-{{> profileNav}}
+{{profileNav}}
 
 <img class="rounded mx-auto img-fluid" src="{{this.userPicture}}" alt="{{this.userName}}">
-
-<p>Email: {{> this.userEmail}}</p>
-<p>Location: {{> this.userLocation}}</p>
-<p>Age: {{> this.userAge}}</p>
-<p>Gender: {{> this.userGender}}</p>
-<p>Bio: {{> this.userBio}}</p>
+<h1>Name: {{this.userName}}</h1>
+<p>Email: {{this.userEmail}}</p>
+<p>Location: {{this.userLocation}}</p>
+<p>Age: {{this.userAge}}</p>
+<p>Gender: {{this.userGender}}</p>
+<p>Bio: {{this.userBio}}</p>

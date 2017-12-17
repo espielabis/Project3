@@ -13,7 +13,7 @@ module.exports = function (app) {
             }).then(data => {
                 models.Posts.findAll({
                     where: {
-                        UserId: req.user.id
+                        id: req.user.id
                     },
                     order: [['createdAt', 'DESC']]
                 }).then(posts => {
@@ -43,20 +43,19 @@ module.exports = function (app) {
         if(req.isAuthenticated()) {
             models.Users.findOne({
                 where: {
-                    Userid: req.user.id
+                    id: req.user.id
                 },
                 include: [models.Roommates]
             }).then(data => {
                 res.render('profile/view-roommates', {
-                    userPicture: data.picture,
-                    userName: data.name,
-                    userEmail: data.email,
-                    userId: data.id,
-                    userBio: data.bio,
-                    userLocation:data.location,
-                    userAge:data.age,
-                    roommates: data.Roommates,
-                    isUser: req.isAuthenticated()
+                    rmpicture: data.rmpicture,
+                    rmname: req.body.rmname,
+                    Rlocation: req.body.rlocation,
+                    WithRoom: req.body.withRoom,
+                    rmage: req.body.rmage,
+                    rmgender:req.body.rmgender,
+                    rmbio: req.body.rmb
+                    // isUser: req.isAuthenticated()
                 });
             });
         }else{
