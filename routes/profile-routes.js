@@ -53,6 +53,8 @@ module.exports = function (app) {
                     userEmail: data.email,
                     userId: data.id,
                     userBio: data.bio,
+                    userLocation:data.location,
+                    userAge:data.age,
                     roommates: data.Roommates,
                     isUser: req.isAuthenticated()
                 });

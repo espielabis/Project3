@@ -128,7 +128,7 @@ module.exports = function (app) {
                 }
             }).then(userData => {
 
-                res.render('roomate', {
+                res.render('roommate', {
                     id: req.params.id,
                     name: data.name,
                     picture: data.picture,
@@ -159,6 +159,8 @@ module.exports = function (app) {
             }).then(data => {
                 var Roommates = [];
 
+                var Rlocations = [];
+                var WithRooms = [];
 
                 for (roommate in data) {
                     Roommates.push(data[roommate]);
@@ -167,9 +169,9 @@ module.exports = function (app) {
                         WithRooms.push(data[roommate].withRoom);
                     }
 
-                    if (!Locations.includes(data[roommate].location)) {
-                        if (data[roommate].location !== '') {
-                            Locations.push(data[roommate].location);
+                    if (!Rlocations.includes(data[roommate].rlocation)) {
+                        if (data[roommate].rlocation !== '') {
+                            Rlocations.push(data[roommate].rlocation);
                         }
                     }
                 }
@@ -239,7 +241,7 @@ module.exports = function (app) {
                 }
 
                 if (!WithRooms.includes(data[roommate].withRoom)) {
-                    if (data[pet].withRoom !== '') {
+                    if (data[roommate].withRoom !== '') {
                         WithRooms.push(data[roommate].withRoom);
                     }
                 }
