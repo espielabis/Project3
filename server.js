@@ -32,16 +32,21 @@ app.use(express.static('public'));
 app.use(fileUpload());
 
 app.set('views', './views');
+//
+// app.engine('hbs', exphbs(
+//     {
+//         defaultLayout: "main",
+//         extname: '.hbs',
+//         partialsDir: 'views/partials'
+//     }
+// ));
+//
+// app.set('view engine', '.hbs');
 
-app.engine('hbs', exphbs(
-    {
-        defaultLayout: "main",
-        extname: '.hbs',
-        partialsDir: 'views/partials'
-    }
-));
-
-app.set('view engine', '.hbs');
+// var exphbs = require("express-handlebars");
+// require('./public/assets/js/handlebars.js')(exphbs);
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 require('./config/passport/passport.js')(passport, models.Users);
 require('./routes/authenticate.js')(app, passport);
