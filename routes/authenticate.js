@@ -1,46 +1,29 @@
-var db = require("../models");
-var passport = require("passport");
-var application = application = require('./application');
+var authController = require('../controllers/auth_controller.js');
 
-module.exports = function(app) {
-    app.get('/login', application.IsAuthenticated, function(req,res) {
-        res.redirect("/users/" + req.user.username)
-    })
+module.exports = function (app, passport) {
+    app.get('/signup', authController.signup);
+    app.get('/signin', authController.signin);
+    app.get('/logout', authController.logout);
+    app.get('/', authController.home);
 
-    app.post('/authenticate',
-    passport.authenticate('local',{
-    successRedirect: '/login',
-    failureRedirect: '/'
-    })
-    )
-    app.get('/login', function(req,res) {
-        res.render("login")
-    })
-    app.get('/logout', application.destroySession)
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/profile',
+        failureRedirect: '/'
+    }));
+    // app.get('/signup', function(req,res) {
+    //       res.render("signup")
+    //
+    //   })
 
-    app.get('/signup', function(req,res) {
-        res.render("signup")
-    })
+    app.post('/signin', passport.authenticate('local-signin', {
+        successRedirect: '/home',
+        failureRedirect: '/'
+    }));
 
-    app.post('/register', function(req, res){
-        db.User.findOne({where: {username: req.username}}).then(function (user){
-            if(!user) {
-                db.User.create({
-                    username: req.body.username,
-                    password: req.body.password,
-                    first_name: req.body.firstName,
-                    last_name: req.body.lastName
-                }).then(function(dbUser,err){
-                    if (err) {
-                        console.log(err);
-                        res.redirect("/")
-                    }
-                });
-            } else {
-                console.log('user doesnt exist yet...');
-                res.redirect('/signup')
-            }
-        })
-        res.redirect('/')
-    });
+    function isLoggedIn(req, res, next) {
+        if (req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/');
+    }
 }
