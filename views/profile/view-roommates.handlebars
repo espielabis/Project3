@@ -44,10 +44,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form ref='uploadForm' id='AddRoommate' action='/api/roommates' method='post' encType="multipart/form-data">
+                <form ref='uploadForm' id='AddRoommate' action='/api/newroommateimg/upload' method='post' encType="multipart/form-data">
                     <div class="form-group">
                         <label for="roommatePicture" class="col-form-label">Picture</label>
                         <input class="form-control" type="file" name="roommatePicture" />
+                          <button type="submit" class="btn btn-success" id="upload">Upload!</button>
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-form-label">Name</label>

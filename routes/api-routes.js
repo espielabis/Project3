@@ -46,7 +46,7 @@ module.exports = function (app) {
             return res.status(400).send('No files were uploaded.');
         var userPicture = req.files.userPicture;
         var userId = req.user.id;
-        var imgPath = "/UserImages/" + userId + "_" + req.user.name + ".jpg";
+        var imgPath = "/UserImages/" + userId + "_" + req.user.name + ".jpeg";
 
         // Use the mv() method to place the file somewhere on your server
         userPicture.mv(path.join(__dirname, "../public" + imgPath), function (err) {
