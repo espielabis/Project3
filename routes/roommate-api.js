@@ -45,7 +45,7 @@ module.exports = function (app) {
         var roommatePicture = req.files.roommatePicture;
         var roommateId = req.body.id;
         console.log(roommateId);
-        var imgPath = '/RoommateImages/' + req.user.id + '_' + req.body.name + '.jpg';
+        var imgPath = '/RoommateImages/' + req.user.id + '_' + req.body.name + '.jpeg';
 
         roommatePicture.mv(path.join(__dirname, '../public' + imgPath), function (err) {
             if (err) {

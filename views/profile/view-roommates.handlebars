@@ -56,14 +56,27 @@
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label for="rlocation" class="col-form-label">Roommate Location</label>
-                            <input class="form-control" type="text" name="rlocation" placeholder="Location" />
+                            <!-- <input class="form-control" type="text" name="rlocation" placeholder="Washington, DC" /> -->
+
+                            <select name="rlocation" class="form-control">
+                                <option name="rlocation" selected>Select One</option>
+                                <option name="rlocation" value="Arlington, Va">Arlington, Va</option>
+                                <option name="rlocation" value="Washington, DC">Washington, DC</option>
+                                <option name="rlocation" value="Baltimore, Md.">Baltimore, Md.</option>
+                                <option name="rlocation" value="Baltimore, Md.">New York, NY.</option>
+
+                                <option name="rlocation" value="Los Angeles, Ca">Los Angeles, Ca.</option>
+                                <option name="rlocation" value="Seattle, Wa">Seattle, Wa.</option>
+                                <option name="rlocation" value="Silcon Valley, Ca.">Silicon Valley, Ca.</option>
+                            </select>
+
                         </div>
                         <div class="form-group col-6">
                             <label for="withRoom" class="col-form-label">WithRoom</label>
                             <select name="withRoom" class="form-control">
                                 <option name="withRoom" selected>Select One</option>
-                                <option name="withRoom" value="male">Yes</option>
-                                <option name="withRoom" value="female">No</option>
+                                <option name="withRoom" value="Yes">Yes</option>
+                                <option name="withRoom" value="No">No</option>
                             </select>
                             <!-- <input class="form-control" type="text" name="withRoom" placeholder="withRoom?" /> -->
                         </div>
