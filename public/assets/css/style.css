@@ -132,7 +132,7 @@ body {
 
 /*.btn.disabled:hover {
     cursor: default;
-}
+}*/
 
 .card {
     margin: 0 0 10px 0;
@@ -144,7 +144,7 @@ body {
 
 .card-header {
     padding: .5rem .75rem;
-}*/
+}
 
 #Filters {
     margin-bottom: 20px;
@@ -242,13 +242,13 @@ body.home .navbar {
         display: block;
     }
 
-    #ImageContainer {
+    /*#ImageContainer {
         background-size: cover;
         background-position: center;
         display: block;
         height: 600px;
         width: 100%;
-    }
+    }*/
 
     #SignUpForm {
         display: block;
