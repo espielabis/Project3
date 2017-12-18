@@ -1,31 +1,17 @@
 
-<main>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <img class="rounded mx-auto img-fluid" src="{{picture}}" alt="{{name}}">
-                <h1>{{name}}, {{age}}</h1>
-                <p>{{email}}</p>
-                <p>{{location}}</p>
-                <p>{{bio}}</p>
-            </div>
-            <div class="col-md-9">
-                <ul class="nav nav-tabs roommate-margin-b-sm">
-                    <li class="nav-item">
-                        <a id="view-roommates" class="nav-link section-change active" data-section="#Roommates">Roommates</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a id="view-post" class="nav-link section-change" data-section="#Posts">Posts</a>
-                    </li>
-                </ul>
+<main id="HomeMain">
+          <div class="background-image responsive"></div>
+               <div class="jumbotron">
+                    <h1>Find and Rate a Roommate!</h1>
+                    <h2>Never have a bad roommate experience again.</h2>
+              </div>
 
-                <section id="Roommates">
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="text-left" style="display: inline-block">Roommates</h2>
-                        </div>
-                    </div>
+          <div class="row">
+                <div class="col-4">
+                  {{> profileSidebar}}
+                </div>
+
                     <div class="row justify-content-center">
                         <div class="card-deck">
                             {{#each roommates}}

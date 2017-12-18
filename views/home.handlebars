@@ -1,10 +1,23 @@
+{{> nav}}
 
+<main id="HomeMain">
+
+          <div class="background-image responsive"></div>
+               <div class="jumbotron">
+                    <h1>Find and Rate a Roommate!</h1>
+                    <h2>Never have a bad roommate experience again.</h2>
+
+
+                  </div>
 <div class="container">
     <div class="row">
         <div class="col-4">
-            {{> homeSidenav}}
+          {{> profileNav }}
+          {{> profileSidebar}}
         </div>
         <div class="col-8">
+          Welcome!
+
             <div class="mb-3">
                 <h2>Blog</h2>
                 <form action="/api/posts" method="post">

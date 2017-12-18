@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        location: {
+        rlocation: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

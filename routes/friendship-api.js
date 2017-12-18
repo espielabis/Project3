@@ -39,15 +39,15 @@ module.exports = function(app){
                               ]
                         }
 
-                    }).then(function(petsData){
-                        //res.json(petsData);
-                        res.send('Friend Added!');
+                    }).then(function(roommatesData){
+                        //res.json(Data);
+                        res.send('Roommate Added!');
                     });
                 });
             }
             else{
-                console.log("friendship already exists");
-                res.send("friendship already exists");
+                console.log("roommate already exists");
+                res.send("roommate already exists");
             }
         });
     });

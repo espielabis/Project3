@@ -10,13 +10,24 @@ module.exports = function (app, passport) {
         successRedirect: '/profile',
         failureRedirect: '/'
     }));
-    // app.get('/signup', function(req,res) {
-    //       res.render("signup")
-    //
-    //   })
+    app.get('/home', function(req,res) {
+          res.render("home")
+      })
+
+      app.get('/roommates', function(req,res) {
+            res.render("roommates")
+      })
+    app.get('/roommate', function(req,res) {
+                  res.render("roommate")
+
+        })
+        app.get('/dashboard', function(req,res) {
+                      res.render("dashboard")
+
+            })
 
     app.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/home',
+        successRedirect: '/profile',
         failureRedirect: '/'
     }));
 

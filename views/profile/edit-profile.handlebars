@@ -1,7 +1,21 @@
+
+
+{{> nav}}
+<div class="jumbotron">
+     <!-- <h1>Find and Rate a Roommate!</h1>
+     <h2>Never have a bad roommate experience again.</h2> -->
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            {{> profileSidebar}}
+
+          <img class="rounded mx-auto img-fluid" src="{{this.userPicture}}" alt="{{this.userName}}">
+          <h1>Name: {{this.userName}}</h1>
+          <p>Email: {{this.userEmail}}</p>
+          <p>Location: {{this.userLocation}}</p>
+          <p>Age: {{this.userAge}}</p>
+          <p>Gender: {{this.userGender}}</p>
+          <p>Bio: {{this.userBio}}</p>
+
         </div>
         <div class="col-md-9">
             {{> profileNav}}

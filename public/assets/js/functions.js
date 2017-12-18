@@ -52,7 +52,7 @@ $(document).ready(function () {
                         class: 'friendRoommateId',
                         value: $('#FriendRoommatetId').val()
                     });
-                    var $myRoommateIds = $('<input>', {
+                    var $myPetId = $('<input>', {
                         type: 'hidden',
                         name: 'myRoommateId',
                         class: 'myRoommateId',
