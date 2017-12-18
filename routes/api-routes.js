@@ -44,9 +44,9 @@ module.exports = function (app) {
 
         if (!req.files.userPicture)
             return res.status(400).send('No files were uploaded.');
-        var userPicture = req.files.userPicture;
-        var userId = req.params.id;
-        var imgPath = "/UserImages/" + userId + "_" + req.params.name + ".jpeg";
+            var userPicture = req.files.userPicture;
+                var userId = req.user.id;
+                var imgPath = "/UserImages/" + userId + "_" + req.user.name + ".jpeg";
 
         // Use the mv() method to place the file somewhere on your server
         userPicture.mv(path.join(__dirname, "../public" + imgPath), function (err) {
@@ -70,7 +70,7 @@ module.exports = function (app) {
     });
 
     //Updating User's info
-    app.post('/api/edit-profile', function (req, res) {
+    app.post('/api/profile', function (req, res) {
         models.Users.update({
             name: req.body.name,
             email: req.body.email,
@@ -83,7 +83,7 @@ module.exports = function (app) {
                 id: req.user.id
             }
         }).then(function (dbUsers) {
-            res.redirect('/profile/edit-profile');
+            res.redirect('/profile');
         });
     });
 
