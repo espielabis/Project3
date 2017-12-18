@@ -116,7 +116,11 @@ body {
     border-radius: .3rem;
     margin-left: 40%;
 }
-
+.jumbotron p {
+    font-weight: bold;
+    color: #0e0707;
+    text-align: center;
+}
 /*.btn:hover {
     cursor: pointer;
 }
