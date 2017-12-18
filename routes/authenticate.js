@@ -7,7 +7,7 @@ module.exports = function (app, passport) {
     app.get('/', authController.home);
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/profile',
+        successRedirect: '/home',
         failureRedirect: '/'
     }));
     app.get('/home', function(req,res) {
