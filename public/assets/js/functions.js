@@ -218,4 +218,12 @@ $(document).ready(function () {
     $('.modal').on('shown.bs.modal', function() {
       $(this).find('[autofocus]').focus();
     });
+
+// star rating (espie)
+$('.rating input').change(function () {
+  var $radio = $(this);
+  $('.rating .selected').removeClass('selected');
+  $radio.closest('label').addClass('selected');
+});
+
 });
